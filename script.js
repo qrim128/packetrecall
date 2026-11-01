@@ -1,3 +1,27 @@
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+document.addEventListener('keydown', e => {
+  // F12
+  if (e.key === 'F12') {
+    e.preventDefault();
+  }
+
+  // Ctrl + U
+  if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+    e.preventDefault();
+  }
+
+  // Ctrl + Shift + I / J / C (DevTools)
+  if (e.ctrlKey && e.shiftKey && ['i','j','c'].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+
+  // Ctrl + S or Cmd + S (Disable Save Page)
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+    e.preventDefault();
+  }
+});
+
 const SH={
  1:'<svg width="__" height="__" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="currentColor"/></svg>',
  2:'<svg width="__" height="__" viewBox="0 0 40 40"><circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="6"/></svg>',
